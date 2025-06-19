@@ -1,7 +1,7 @@
 package com.movieflix.service;
 
 import com.movieflix.dto.MovieDto;
-import com.movieflix.entities.MovieEntity;
+import com.movieflix.entities.Movie;
 import com.movieflix.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -37,8 +37,8 @@ public class MovieServiceImpl implements MovieService {
         // Sets the poster filename to database entity
         movieDto.setPoster(uploadedFileName);
 
-        // Convert the DTO to database entity
-        MovieEntity movie = new MovieEntity(
+//         Convert the DTO to database entity
+        Movie movie = new Movie(
                 movieDto.getMovieId(),
                 movieDto.getTitle(),
                 movieDto.getDirector(),
@@ -49,13 +49,13 @@ public class MovieServiceImpl implements MovieService {
         );
 
         // Save the entity to the database
-        MovieEntity savedMovie = movieRepository.save(movie);
+        Movie savedMovie = movieRepository.save(movie);
 
         // Generate poster Url
         String posterUrl = baseUrl + "/file/" + uploadedFileName;
 
         // Builds a new DTO (with full movie + poster Url)
-        MovieDto response = new MovieDto(
+        return new MovieDto(
                 savedMovie.getMovieId(),
                 savedMovie.getTitle(),
                 savedMovie.getDirector(),
@@ -65,7 +65,6 @@ public class MovieServiceImpl implements MovieService {
                 savedMovie.getPoster(),
                 posterUrl
         );
-        return response;
     }
 
     @Override
