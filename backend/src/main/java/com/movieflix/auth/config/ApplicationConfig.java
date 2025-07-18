@@ -1,4 +1,4 @@
-package com.movieflix.config;
+package com.movieflix.auth.config;
 
 import com.movieflix.auth.repositories.UserRepository;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +23,7 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
+        return username -> userRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
     }
 
     public AuthenticationProvider authenticationProvider() {
