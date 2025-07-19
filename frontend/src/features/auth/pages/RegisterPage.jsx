@@ -34,19 +34,19 @@ const RegisterPage = () => {
             <form onSubmit={handleSubmit}>
                 <div style={{marginBottom: '10px'}}>
                     <label>Name: </label>
-                    <input type="text" name="name" value={formData.name} onchange={handleChange} placeholder="Enter your name" />
+                    <input type="text" name="name" value={formData.name} onchange={handleChange} placeholder="Enter name" />
                 </div>
                 <div style={{marginBottom: '10px'}}>
                     <label>Username: </label>
-                    <input type="text" name="username" value={formData.username} onchange={handleChange} placeholder="Enter your username" />
+                    <input type="text" name="username" value={formData.username} onchange={handleChange} placeholder="Enter username" />
                 </div>
                 <div style={{marginBottom: '10px'}}>
                     <label>Eamil: </label>
-                    <input type="email" name="email" value={formData.email} onchange={handleChange} placeholder="Enter your email" />
+                    <input type="email" name="email" value={formData.email} onchange={handleChange} placeholder="Enter email" />
                 </div>
                 <div style={{marginBottom: '10px'}}>
                     <label>Password: </label>
-                    <input type="password" name="password" value={formData.password} onchange={handleChange} placeholder="Enter your password" />
+                    <input type="password" name="password" value={formData.password} onchange={handleChange} placeholder="Enter password" />
                 </div>
                 <button type="submit">Register</button>
             </form>

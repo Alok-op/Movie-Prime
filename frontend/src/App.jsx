@@ -1,6 +1,8 @@
+import LoginPage from "./features/auth/pages/LoginPage";
+
 const App = () => {
   return (
-    <div>movie prime </div>
+    <LoginPage/>
   )
 }
 
